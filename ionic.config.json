@@ -1,0 +1,7 @@
+{
+  "name": "DecisionAnalytics",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
