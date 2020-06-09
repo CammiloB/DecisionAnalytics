@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/Inbox"></ion-back-button>
+    </ion-buttons>
+    <div class="ion-text-center">
+      <ion-title>Método Pesimista</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!resultFlag">
+
+  <ion-card>
+    <ion-header class="ion-text-center">
+      <ion-card-title>Agregar Alternativas</ion-card-title>
+    </ion-header>
+    <ion-card-content>
+      <ion-title>Alternativas</ion-title>
+
+      <div class="list-alternatives">
+        <ion-list class="row-table" *ngFor="let alt of alternatives; let i = index">
+          <ion-row>
+            <ion-item>{{alt}} <ion-icon class="delete" slot="end" [ios]="'trash-outline'" [md]="'trash-sharp'">
+              </ion-icon>
+            </ion-item>
+          </ion-row>
+        </ion-list>
+      </div>
+      <div>
+        <ion-input class="input-text" [(ngModel)]="nameAlternative"></ion-input>
+        <ion-button (click)="addAlternative()">+</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-header class="ion-text-center">
+      <ion-card-title>Agregar Estados de Naturaleza</ion-card-title>
+    </ion-header>
+    <ion-card-content>
+      <ion-title>Estados Naturaleza</ion-title>
+
+      <div class="list-alternatives">
+        <ion-list class="row-table" *ngFor="let nature of natureStates; let i = index">
+          <ion-row>
+            <ion-item>{{nature}} <ion-icon class="delete" slot="end" [ios]="'trash-outline'" [md]="'trash-sharp'">
+              </ion-icon>
+            </ion-item>
+          </ion-row>
+        </ion-list>
+      </div>
+      <div>
+        <ion-input class="input-text" [(ngModel)]="nameNatureState"></ion-input>
+        <ion-button (click)="addNatureState()">+</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-row class="header">
+      <div class="col" *ngFor="let nature of natureStates">{{nature}}</div>
+    </ion-row>
+    <ion-row *ngFor="let alt of alternatives; let i = index">
+      <div class="col">{{alt}}</div>
+      <div *ngFor="let nature of natureStates; let j = index">
+        <ion-input class="input-text" [(ngModel)]="matrix[i][j]"></ion-input>
+      </div>
+    </ion-row>
+
+  </ion-card>
+  <ion-button (click)="calculateResult()">Calcular</ion-button>
+
+</ion-content>
+
+<ion-content *ngIf="resultFlag">
+  <ion-text>La mejor opcion que puede tomar es: {{alternatives[index]}}</ion-text>
+  <ion-button (click)="refresh()">Recalcular</ion-button>
+</ion-content>

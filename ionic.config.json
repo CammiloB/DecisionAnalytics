@@ -1,7 +1,8 @@
 {
   "name": "DecisionAnalytics",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
