@@ -4,7 +4,7 @@
       <ion-back-button defaultHref="folder/Inbox"></ion-back-button>
     </ion-buttons>
     <div class="ion-text-center">
-      <ion-title>Método Pesimista</ion-title>
+      <ion-title>Método Optimista</ion-title>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -28,7 +28,7 @@
         </ion-list>
       </div>
       <div>
-        <ion-input class="input-text" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()"></ion-input>
+        <ion-input class="input-text" [(ngModel)]="nameAlternative"></ion-input>
         <ion-button (click)="addAlternative()">+</ion-button>
       </div>
     </ion-card-content>
@@ -51,7 +51,7 @@
         </ion-list>
       </div>
       <div>
-        <ion-input class="input-text" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()"></ion-input>
+        <ion-input class="input-text" [(ngModel)]="nameNatureState"></ion-input>
         <ion-button (click)="addNatureState()">+</ion-button>
       </div>
     </ion-card-content>

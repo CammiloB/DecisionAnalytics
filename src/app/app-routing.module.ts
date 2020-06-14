@@ -26,8 +26,11 @@ const routes: Routes = [
   {
     path: 'methods/wald',
     loadChildren: () => import('./methods/wald/wald.module').then( m => m.WaldPageModule)
-  }
-
+  },
+  {
+    path: 'methods/hurwicz',
+    loadChildren: () => import('./methods/hurwicz/hurwicz.module').then( m => m.HurwiczPageModule)
+  },
   
 ];
 

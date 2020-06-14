@@ -28,7 +28,7 @@
         </ion-list>
       </div>
       <div>
-        <ion-input class="input-text" [(ngModel)]="nameAlternative"></ion-input>
+        <ion-input class="input-text" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()"></ion-input>
         <ion-button (click)="addAlternative()">+</ion-button>
       </div>
     </ion-card-content>
@@ -51,7 +51,7 @@
         </ion-list>
       </div>
       <div>
-        <ion-input class="input-text" [(ngModel)]="nameNatureState"></ion-input>
+        <ion-input class="input-text" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()"></ion-input>
         <ion-button (click)="addNatureState()">+</ion-button>
       </div>
     </ion-card-content>

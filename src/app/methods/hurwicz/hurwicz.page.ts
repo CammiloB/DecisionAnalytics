@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-optimist',
-  templateUrl: './optimist.page.html',
-  styleUrls: ['./optimist.page.scss'],
+  selector: 'app-hurwicz',
+  templateUrl: './hurwicz.page.html',
+  styleUrls: ['./hurwicz.page.scss'],
 })
-export class OptimistPage implements OnInit {
+export class HurwiczPage implements OnInit {
 
   public alternatives = [];
   public natureStates = [];
@@ -17,6 +16,7 @@ export class OptimistPage implements OnInit {
   public resultFlag = false;
   public result = 0;
   public index = 0;
+  public alpha = 0.7;
 
   constructor() { }
 
@@ -46,14 +46,22 @@ export class OptimistPage implements OnInit {
   }
 
   calculateResult(){
+    
     var highers = [];
+    var smallers = [];
+    var results = [];
     this.convertMatrix();
     for(var _i=0; _i<this.matrix.length; _i++){
       highers.push(this.higherList(this.matrix[_i]));
+      smallers.push(this.smallerList(this.matrix[_i]));
     }
     for(var _i=0; _i<highers.length; _i++){
-      if(this.result < highers[_i]){
-        this.result = highers[_i];
+      results.push(this.alpha*highers[_i] + (1-this.alpha)*smallers[_i])
+    }
+
+    for(var _i = 0; _i<results.length; _i++){
+      if(this.result < results[_i]){
+        this.result = results[_i];
         this.index = _i;
       }
     }
@@ -76,6 +84,16 @@ export class OptimistPage implements OnInit {
       }
     }
     return high;
+  }
+
+  smallerList(array: any[]){
+    var small = array[0];
+    for(var _i=0; _i<array.length; _i++){
+      if(array[_i] < small){
+        small = array[_i];
+      }
+    }
+    return small;
   }
 
   refresh(){
