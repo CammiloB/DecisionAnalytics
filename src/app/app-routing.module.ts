@@ -31,6 +31,11 @@ const routes: Routes = [
     path: 'methods/hurwicz',
     loadChildren: () => import('./methods/hurwicz/hurwicz.module').then( m => m.HurwiczPageModule)
   },
+  {
+    path: 'methods/laplace',
+    loadChildren: () => import('./methods/laplace/laplace.module').then( m => m.LaplacePageModule)
+  },
+
   
 ];
 

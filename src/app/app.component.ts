@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
       icon: 'resize'
     },
     {
-      title: 'Inbox',
-      url: '/folder/Inbox',
+      title: 'Laplace',
+      url: 'methods/laplace',
       icon: 'mail'
     },
     {

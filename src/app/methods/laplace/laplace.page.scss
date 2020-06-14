@@ -1,0 +1,46 @@
+.ion-text-center{
+    text-align: center;
+}
+
+.row-table{
+    border-color: white;
+    border-width: .01em; 
+    border-style:solid; margin-bottom : -1px;
+}
+
+.input-text{
+    color: black;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.list-alternatives{
+    margin-bottom: 50px;
+}
+
+ion-card{
+    margin-bottom: 50px;
+}
+
+.delete{
+    color: red;
+}
+
+.header{
+    margin-left: 50px;
+}
+
+
+.col{
+    border-radius: 0.5rem;
+    background-color: lightblue;
+    width: 183px;
+    color: black;
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.table{
+    width: 100%;
+}
