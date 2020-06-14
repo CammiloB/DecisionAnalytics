@@ -33,8 +33,8 @@ export class AppComponent implements OnInit {
       icon: 'mail'
     },
     {
-      title: 'Outbox',
-      url: '/folder/Outbox',
+      title: 'Wald',
+      url: 'methods/wald',
       icon: 'paper-plane'
     },
     {

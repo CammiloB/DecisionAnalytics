@@ -22,7 +22,12 @@ const routes: Routes = [
   {
     path: 'methods/regrets',
     loadChildren: () => import('./methods/regrets/regrets.module').then( m => m.RegretsPageModule)
+  },
+  {
+    path: 'methods/wald',
+    loadChildren: () => import('./methods/wald/wald.module').then( m => m.WaldPageModule)
   }
+
   
 ];
 

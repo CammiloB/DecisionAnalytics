@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pessimistic',
-  templateUrl: './pessimistic.page.html',
-  styleUrls: ['./pessimistic.page.scss'],
+  selector: 'app-wald',
+  templateUrl: './wald.page.html',
+  styleUrls: ['./wald.page.scss'],
 })
-export class PessimisticPage implements OnInit {
+export class WaldPage implements OnInit {
 
   public alternatives = [];
   public natureStates = [];
