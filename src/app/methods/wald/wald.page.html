@@ -64,7 +64,7 @@
     <ion-row *ngFor="let alt of alternatives; let i = index">
       <div class="col">{{alt}}</div>
       <div *ngFor="let nature of natureStates; let j = index">
-        <ion-input class="input-text" [(ngModel)]="matrix[i][j]"></ion-input>
+        <ion-input type="text" style="width : 50px;" [(ngModel)]="matrix[i][j]"></ion-input>
       </div>
     </ion-row>
 

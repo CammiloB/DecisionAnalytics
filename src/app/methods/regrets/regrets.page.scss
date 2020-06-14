@@ -33,14 +33,16 @@ ion-card{
 
 .col{
     border-radius: 0.5rem;
-    background-color: lightblue;
-    width: 183px;
-    color: black;
-    border: solid 1px grey;
+    text-align: center;
+    background-color: rgb(196, 211, 204);
+    width: 50px;
+    color: rgb(41, 55, 48);
+    border: solid 3px rgb(191, 192, 192);
     border-bottom-style: none;
     border-right-style: none;
 }
 
+
 .table{
-    width: 100%;
+    width: 80%;
 }

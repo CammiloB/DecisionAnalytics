@@ -13,7 +13,7 @@ export class OptimistPage implements OnInit {
   public nameAlternative: string;
   public nameNatureState: string;
   public paymentMatrix = [];
-  public matrix = [];elmillor
+  public matrix = [];
   public resultFlag = false;
   public result = 0;
   public index = 0;
