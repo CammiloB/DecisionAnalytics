@@ -46,29 +46,8 @@ export class AppComponent implements OnInit {
       title: 'Savage',
       url: 'methods/savage',
       icon: 'mail'
-    },
-    {
-      title: 'Favorites',
-      url: '/folder/Favorites',
-      icon: 'heart'
-    },
-    {
-      title: 'Archived',
-      url: '/folder/Archived',
-      icon: 'archive'
-    },
-    {
-      title: 'Trash',
-      url: '/folder/Trash',
-      icon: 'trash'
-    },
-    {
-      title: 'Spam',
-      url: '/folder/Spam',
-      icon: 'warning'
     }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
   constructor(
     private platform: Platform,
