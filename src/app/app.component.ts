@@ -28,6 +28,11 @@ export class AppComponent implements OnInit {
       icon: 'arrow-undo-circle'
     },
     {
+      title: 'Hurwicz',
+      url: 'methods/hurwicz',
+      icon: 'resize'
+    },
+    {
       title: 'Inbox',
       url: '/folder/Inbox',
       icon: 'mail'

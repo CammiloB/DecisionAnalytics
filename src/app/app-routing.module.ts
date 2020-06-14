@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'methods/regrets',
     loadChildren: () => import('./methods/regrets/regrets.module').then( m => m.RegretsPageModule)
+  },
+  {
+    path: 'methods/hurwicz',
+    loadChildren: () => import('./methods/hurwicz/hurwicz.module').then( m => m.HurwiczPageModule)
   }
   
 ];
