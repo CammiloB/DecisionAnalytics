@@ -23,6 +23,11 @@ export class AppComponent implements OnInit {
       icon: 'sad'
     },
     {
+      title: 'Arrepentimientos',
+      url: 'methods/regrets',
+      icon: 'arrow-undo-circle'
+    },
+    {
       title: 'Inbox',
       url: '/folder/Inbox',
       icon: 'mail'

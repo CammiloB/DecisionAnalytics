@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
-  selector: 'app-pessimistic',
-  templateUrl: './pessimistic.page.html',
-  styleUrls: ['./pessimistic.page.scss'],
+  selector: 'app-regrets',
+  templateUrl: './regrets.page.html',
+  styleUrls: ['./regrets.page.scss'],
 })
-export class PessimisticPage implements OnInit {
+export class RegretsPage implements OnInit {
 
   public alternatives = [];
   public natureStates = [];
@@ -45,27 +46,28 @@ export class PessimisticPage implements OnInit {
   }
 
   calculateResult(){
-    var smallers = []
+    var highers = []
     for(var _i=0; _i<this.matrix.length; _i++){
-      smallers.push(this.smallerList(this.matrix[_i]));
+      highers.push(this.higherList(this.matrix[_i]));
     }
-    for(var _i=0; _i<smallers.length; _i++){
-      if(this.result < smallers[_i]){
-        this.result = smallers[_i];
+    this.result = highers[0];
+    for(var _i=0; _i<highers.length; _i++){
+      if(highers[_i] < this.result ){
+        this.result = highers[_i];
         this.index = _i;
       }
     }
     this.resultFlag = true;
   }
 
-  smallerList(array: any[]){
-    var small = array[0];
+  higherList(array: any[]){
+    var high = 0;
     for(var _i=0; _i<array.length; _i++){
-      if(array[_i] < small){
-        small = array[_i];
+      if(array[_i] > high){
+        high = array[_i];
       }
     }
-    return small;
+    return high;
   }
 
   refresh(){

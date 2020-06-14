@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'methods/pessimistic',
     loadChildren: () => import('./methods/pessimistic/pessimistic.module').then( m => m.PessimisticPageModule)
+  },
+  {
+    path: 'methods/regrets',
+    loadChildren: () => import('./methods/regrets/regrets.module').then( m => m.RegretsPageModule)
   }
   
 ];
