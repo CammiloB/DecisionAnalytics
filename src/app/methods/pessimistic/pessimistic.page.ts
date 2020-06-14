@@ -46,6 +46,7 @@ export class PessimisticPage implements OnInit {
 
   calculateResult(){
     var smallers = []
+    this.convertMatrix();
     for(var _i=0; _i<this.matrix.length; _i++){
       smallers.push(this.smallerList(this.matrix[_i]));
     }
@@ -56,6 +57,14 @@ export class PessimisticPage implements OnInit {
       }
     }
     this.resultFlag = true;
+  }
+
+  convertMatrix(){
+    for(var _i = 0; _i<this.matrix.length; _i++){
+      for(var _j=0; _j<this.matrix[_i].length; _j++){
+        this.matrix[_i][_j]=parseFloat(this.matrix[_i][_j]);
+      }
+    }
   }
 
   smallerList(array: any[]){

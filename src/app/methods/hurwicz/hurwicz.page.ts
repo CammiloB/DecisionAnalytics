@@ -46,10 +46,11 @@ export class HurwiczPage implements OnInit {
   }
 
   calculateResult(){
-    console.log(this.matrix)
+    
     var highers = [];
     var smallers = [];
     var results = [];
+    this.convertMatrix();
     for(var _i=0; _i<this.matrix.length; _i++){
       highers.push(this.higherList(this.matrix[_i]));
       smallers.push(this.smallerList(this.matrix[_i]));
@@ -57,12 +58,22 @@ export class HurwiczPage implements OnInit {
     for(var _i=0; _i<highers.length; _i++){
       results.push(this.alpha*highers[_i] + (1-this.alpha)*smallers[_i])
     }
+
     for(var _i = 0; _i<results.length; _i++){
       if(this.result < results[_i]){
         this.result = results[_i];
+        this.index = _i;
       }
     }
     this.resultFlag = true;
+  }
+
+  convertMatrix(){
+    for(var _i = 0; _i<this.matrix.length; _i++){
+      for(var _j=0; _j<this.matrix[_i].length; _j++){
+        this.matrix[_i][_j]=parseFloat(this.matrix[_i][_j]);
+      }
+    }
   }
 
   higherList(array: any[]){
