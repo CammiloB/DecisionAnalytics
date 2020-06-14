@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
-  selector: 'app-optimist',
-  templateUrl: './optimist.page.html',
-  styleUrls: ['./optimist.page.scss'],
+  selector: 'app-savage',
+  templateUrl: './savage.page.html',
+  styleUrls: ['./savage.page.scss'],
 })
-export class OptimistPage implements OnInit {
+export class SavagePage implements OnInit {
 
   public alternatives = [];
   public natureStates = [];
@@ -47,17 +46,34 @@ export class OptimistPage implements OnInit {
 
   calculateResult(){
     var highers = [];
+    var maxs = [];
     this.convertMatrix();
-    for(var _i=0; _i<this.matrix.length; _i++){
-      highers.push(this.higherList(this.matrix[_i]));
+    for(var _i=0; _i<this.matrix[0].length; _i++){
+      var max = 0;
+      for(var _j=0; _j<this.matrix.length; _j++){
+        if(this.matrix[_j][_i] > max){
+          max = this.matrix[_j][_i];
+        }
+      }
+      highers.push(max)
     }
-    for(var _i=0; _i<highers.length; _i++){
-      if(this.result < highers[_i]){
-        this.result = highers[_i];
+    for(var _i=0; _i<this.matrix[0].length; _i++){
+      for(var _j=0; _j<this.matrix.length; _j++){
+        this.matrix[_j][_i] = highers[_i]-this.matrix[_j][_i];
+      }
+    }
+
+    for(var _i=0; _i<this.matrix.length; _i++){
+      maxs.push(this.higherList(this.matrix[_i]));
+    }
+    this.result = maxs[0];
+    for(var _i=0; _i<maxs.length; _i++){
+      if(this.result > maxs[_i]){
+        this.result = maxs[_i];
         this.index = _i;
       }
     }
-    this.resultFlag = true;
+    this.resultFlag = true
   }
 
   convertMatrix(){

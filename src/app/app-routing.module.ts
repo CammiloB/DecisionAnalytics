@@ -35,8 +35,12 @@ const routes: Routes = [
     path: 'methods/laplace',
     loadChildren: () => import('./methods/laplace/laplace.module').then( m => m.LaplacePageModule)
   },
+  {
+    path: 'methods/savage',
+    loadChildren: () => import('./methods/savage/savage.module').then( m => m.SavagePageModule)
+  },
 
-  
+
 ];
 
 @NgModule({

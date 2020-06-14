@@ -43,6 +43,11 @@ export class AppComponent implements OnInit {
       icon: 'paper-plane'
     },
     {
+      title: 'Savage',
+      url: 'methods/savage',
+      icon: 'mail'
+    },
+    {
       title: 'Favorites',
       url: '/folder/Favorites',
       icon: 'heart'
