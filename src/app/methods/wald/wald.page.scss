@@ -10,8 +10,9 @@
 
 .input-text{
     color: black;
-    background-color: white;
+    background-color: rgb(179, 177, 177);
     border-radius: 0.5rem;
+    border:1px solid #000
 }
 
 .list-alternatives{
@@ -20,6 +21,8 @@
 
 ion-card{
     margin-bottom: 50px;
+    background-color: rgb(128, 128, 128);
+    color: white;
 }
 
 .delete{

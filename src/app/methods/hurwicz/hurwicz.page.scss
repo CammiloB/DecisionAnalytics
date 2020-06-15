@@ -3,15 +3,16 @@
 }
 
 .row-table{
-    border-color: white;
+    border-color: rgb(88, 88, 88);
     border-width: .01em; 
     border-style:solid; margin-bottom : -1px;
 }
 
 .input-text{
     color: black;
-    background-color: white;
+    background-color: rgb(179, 177, 177);
     border-radius: 0.5rem;
+    border:1px solid #000
 }
 
 .list-alternatives{
@@ -20,6 +21,8 @@
 
 ion-card{
     margin-bottom: 50px;
+    background-color: rgb(128, 128, 128);
+    color: white;
 }
 
 .delete{
@@ -34,7 +37,7 @@ ion-card{
 .col{
     border-radius: 0.5rem;
     text-align: center;
-    background-color: rgb(196, 211, 204);
+    background-color: rgb(117, 121, 119);
     width: 50px;
     color: rgb(41, 55, 48);
     border: solid 3px rgb(191, 192, 192);

@@ -39,8 +39,6 @@ const routes: Routes = [
     path: 'methods/savage',
     loadChildren: () => import('./methods/savage/savage.module').then( m => m.SavagePageModule)
   },
-
-
 ];
 
 @NgModule({
