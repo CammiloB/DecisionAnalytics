@@ -86,6 +86,20 @@
 </ion-content>
 
 <ion-content *ngIf="resultFlag">
-  <ion-text>La mejor opcion que puede tomar es: {{alternatives[index]}}</ion-text>
-  <ion-button (click)="refresh()">Recalcular</ion-button>
+  <ion-card>
+    <div style="text-align: center;">
+      <ion-text>La mejor opcion que puede tomar es: {{alternatives[index]}}</ion-text>
+    </div>
+    <div class="user-box">
+      <div class="button-container">
+        <ion-button shape="round" size="large" color="transparent" (click)="calculateResult()">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Calcular
+        </ion-button>
+      </div>
+    </div>
+  </ion-card>
 </ion-content>
