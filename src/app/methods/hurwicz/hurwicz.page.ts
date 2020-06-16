@@ -16,7 +16,7 @@ export class HurwiczPage implements OnInit {
   public resultFlag = false;
   public result = 0;
   public index = 0;
-  public alpha = 0.7;
+  public alpha;
 
   constructor() { }
 
@@ -46,7 +46,7 @@ export class HurwiczPage implements OnInit {
   }
 
   calculateResult(){
-    
+
     var highers = [];
     var smallers = [];
     var results = [];

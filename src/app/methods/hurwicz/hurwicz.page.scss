@@ -4,16 +4,17 @@
 
 .row-table{
     border-color: rgb(88, 88, 88);
-    border-width: .01em; 
+    border-width: .01em;
     border-style:solid; margin-bottom : -1px;
 }
 
 .input-text{
     color: black;
     background-color: rgb(179, 177, 177);
-    border-radius: 0.5rem;
-    border:1px solid #000
+    border:1px solid #000;
 }
+
+
 
 .list-alternatives{
     margin-bottom: 50px;
@@ -21,8 +22,76 @@
 
 ion-card{
     margin-bottom: 50px;
-    background-color: rgb(128, 128, 128);
+    background: #0f2027; /* fallback for old browsers */
+    background: linear-gradient(to right,#2c5364, #203a43, #0f2027);
     color: white;
+}
+
+ion-card-title{
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #7881A1;
+$input-text-active: #BFD2FF;
+
+// gradient animation
+@keyframes gradient {
+  0%{background-position:0 0}
+  100%{background-position:100% 0}
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1rem;
+  background: $input-background;
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+  }
+}
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: $input-text-active;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  height: 10px;
+  &::-webkit-input-placeholder {
+    color: $input-text-inactive;
+  }
+}
+
+.webflow-style-input button {
+  color:  $input-text-inactive;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+  &:hover {
+    color: $input-text-active;
+  }
 }
 
 .delete{
@@ -48,4 +117,30 @@ ion-card{
 
 .table{
     width: 80%;
+}
+
+.alpha{
+  display: inline-block;
+}
+
+.input-matrix{
+  background-color: white;
+  border-radius: 0.5rem;
+  color: black;
+}
+
+.input-alpha{
+  border-radius: 0.5rem;
+  margin-left: 50px;
+  border: 1px solid #000;
+}
+
+.label-alpha{
+  padding-top: 10px;
+  width: 50px;
+  height: 20px;
+}
+
+.send{
+  margin-top: 50px;
 }

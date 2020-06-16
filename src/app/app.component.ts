@@ -46,10 +46,6 @@ export class AppComponent implements OnInit {
       title: 'Savage',
       url: 'methods/savage',
       icon: 'mail'
-    },
-    {
-      title: 'Participantes',
-      icon: 'contac'
     }
   ];
 
