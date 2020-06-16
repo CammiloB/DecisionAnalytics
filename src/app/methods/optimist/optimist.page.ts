@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -18,9 +19,12 @@ export class OptimistPage implements OnInit {
   public result = 0;
   public index = 0;
 
-  constructor() { }
+  constructor(
+    public toastController: ToastController
+  ) { }
 
   ngOnInit() {
+    this.viewToastInit();
   }
 
   addAlternative(){
@@ -47,7 +51,7 @@ export class OptimistPage implements OnInit {
 
   calculateResult(){
     var highers = [];
-    this.convertMatrix();
+    //this.convertMatrix();
     for(var _i=0; _i<this.matrix.length; _i++){
       highers.push(this.higherList(this.matrix[_i]));
     }
@@ -71,11 +75,33 @@ export class OptimistPage implements OnInit {
   higherList(array: any[]){
     var high = 0;
     for(var _i=0; _i<array.length; _i++){
+        if(isNaN(parseFloat(array[_i]))){
+          this.viewToast();
+          throw new Error(
+            'Se ha ingresado un dato incorrecto.'
+          )
+        }
       if(array[_i] > high){
         high = array[_i];
       }
     }
     return high;
+  }
+
+  async viewToast(){
+    const toast = await this.toastController.create({
+      message: 'Has ingresado un dato incorrecto!',
+      duration: 3000
+    });
+    toast.present();
+  }
+
+  async viewToastInit(){
+    const toast = await this.toastController.create({
+      message: 'Los datos decimales son referenciados con punto "."',
+      duration: 3000
+    });
+    toast.present();
   }
 
   refresh(){
