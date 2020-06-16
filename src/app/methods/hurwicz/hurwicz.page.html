@@ -1,7 +1,7 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="folder/Inbox"></ion-back-button>
+      <ion-back-button defaultHref="folder"></ion-back-button>
     </ion-buttons>
     <div class="ion-text-center">
       <ion-title>Método de Hurwicz</ion-title>
@@ -11,7 +11,7 @@
 
 <ion-content *ngIf="!resultFlag">
 
-  <ion-card >
+  <ion-card>
     <ion-header class="ion-text-center">
       <ion-card-title>Agregar Alternativas</ion-card-title>
     </ion-header>
@@ -21,13 +21,16 @@
       <div class="list-alternatives">
         <ion-list class="row-table" *ngFor="let alt of alternatives; let i = index">
           <ion-row>
-            <ion-item>{{alt}</ion-item>
+            <ion-item>{{alt}}</ion-item>
           </ion-row>
         </ion-list>
       </div>
       <div class="webflow-style-input">
-        <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()"></ion-input>
-        <ion-button type="submit"><ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+        <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()">
+        </ion-input>
+        <ion-button type="submit">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
@@ -47,8 +50,11 @@
         </ion-list>
       </div>
       <div class="webflow-style-input">
-        <ion-input  placeholder="Nombre Alternativa" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()"></ion-input>
-        <ion-button type="submit"><ion-icon name="arrow-forward-outline"></ion-icon></ion-button>
+        <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()">
+        </ion-input>
+        <ion-button type="submit">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
@@ -65,13 +71,22 @@
     </ion-row>
 
   </ion-card>
-  <ion-row>
+  <div class="user-box">
     <div>
-      <ion-label class="label-alpha">Alpha: </ion-label>
-      <ion-input class="input-alpha" [(ngModel)]="alpha"></ion-input>
+      <input type="text" name="" required="" [(ngModel)]="alpha">
+      <label>Alpha: </label>
     </div>
-  </ion-row>
-  <ion-button class="send" (click)="calculateResult()">Calcular</ion-button>
+    <div class="button-container">
+      <ion-button shape="round" size="large" color="transparent" (click)="calculateResult()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Calcular
+      </ion-button>
+    </div>
+  </div>
+  
 
 </ion-content>
 

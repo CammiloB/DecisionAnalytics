@@ -26,19 +26,19 @@ export class HurwiczPage implements OnInit {
     this.viewToastInit();
   }
 
-  addAlternative(){
+  addAlternative() {
     this.alternatives.push(this.nameAlternative);
     this.nameAlternative = "";
     this.initialiceMatrix()
   }
 
-  addNatureState(){
+  addNatureState() {
     this.natureStates.push(this.nameNatureState);
     this.nameNatureState = "";
     this.initialiceMatrix();
   }
 
-  initialiceMatrix(){
+  initialiceMatrix() {
     this.matrix = [];
     for (var _i = 0; _i < this.alternatives.length; _i++) {
       this.matrix.push([])
@@ -48,22 +48,28 @@ export class HurwiczPage implements OnInit {
     }
   }
 
-  calculateResult(){
+  calculateResult() {
 
     var highers = [];
     var smallers = [];
     var results = [];
-    //this.convertMatrix();
-    for(var _i=0; _i<this.matrix.length; _i++){
+    this.convertMatrix();
+    if (isNaN(parseFloat(this.alpha))) {
+      this.viewToast();
+      throw new Error(
+        'Se ha ingresado un dato incorrecto.'
+      )
+    }
+    for (var _i = 0; _i < this.matrix.length; _i++) {
       highers.push(this.higherList(this.matrix[_i]));
       smallers.push(this.smallerList(this.matrix[_i]));
     }
-    for(var _i=0; _i<highers.length; _i++){
-      results.push(this.alpha*highers[_i] + (1-this.alpha)*smallers[_i])
+    for (var _i = 0; _i < highers.length; _i++) {
+      results.push(this.alpha * highers[_i] + (1 - this.alpha) * smallers[_i])
     }
 
-    for(var _i = 0; _i<results.length; _i++){
-      if(this.result < results[_i]){
+    for (var _i = 0; _i < results.length; _i++) {
+      if (this.result < results[_i]) {
         this.result = results[_i];
         this.index = _i;
       }
@@ -71,41 +77,41 @@ export class HurwiczPage implements OnInit {
     this.resultFlag = true;
   }
 
-  convertMatrix(){
-    for(var _i = 0; _i<this.matrix.length; _i++){
-      for(var _j=0; _j<this.matrix[_i].length; _j++){
-        this.matrix[_i][_j]=parseFloat(this.matrix[_i][_j]);
+  convertMatrix() {
+    for (var _i = 0; _i < this.matrix.length; _i++) {
+      for (var _j = 0; _j < this.matrix[_i].length; _j++) {
+        if (isNaN(parseFloat(this.matrix[_i][_j]))) {
+          this.viewToast();
+          throw new Error(
+            'Se ha ingresado un dato incorrecto.'
+          )
+        }
+        this.matrix[_i][_j] = parseFloat(this.matrix[_i][_j]);
       }
     }
   }
 
-  higherList(array: any[]){
+  higherList(array: any[]) {
     var high = 0;
-    for(var _i=0; _i<array.length; _i++){
-      if(array[_i] > high){
+    for (var _i = 0; _i < array.length; _i++) {
+      if (array[_i] > high) {
         high = array[_i];
       }
     }
     return high;
   }
 
-  smallerList(array: any[]){
+  smallerList(array: any[]) {
     var small = array[0];
-    for(var _i=0; _i<array.length; _i++){
-      if(isNaN(parseFloat(array[_i]))){
-        this.viewToast();
-        throw new Error(
-          'Se ha ingresado un dato incorrecto.'
-        )
-      }
-      if(array[_i] < small){
+    for (var _i = 0; _i < array.length; _i++) {
+      if (array[_i] < small) {
         small = array[_i];
       }
     }
     return small;
   }
 
-  async viewToast(){
+  async viewToast() {
     const toast = await this.toastController.create({
       message: 'Has ingresado un dato incorrecto!',
       duration: 3000
@@ -113,7 +119,7 @@ export class HurwiczPage implements OnInit {
     toast.present();
   }
 
-  async viewToastInit(){
+  async viewToastInit() {
     const toast = await this.toastController.create({
       message: 'Los datos decimales son referenciados con punto "."',
       duration: 3000
@@ -121,7 +127,7 @@ export class HurwiczPage implements OnInit {
     toast.present();
   }
 
-  refresh(){
+  refresh() {
     this.natureStates = [];
     this.alternatives = [];
     this.nameAlternative = "";

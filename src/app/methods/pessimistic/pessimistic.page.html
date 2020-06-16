@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="folder/Inbox"></ion-back-button>
+      <ion-back-button defaultHref="folder"></ion-back-button>
     </ion-buttons>
     <div class="ion-text-center">
       <ion-title>Método Pesimista</ion-title>
@@ -21,15 +21,16 @@
       <div class="list-alternatives">
         <ion-list class="row-table" *ngFor="let alt of alternatives; let i = index">
           <ion-row>
-            <ion-item>{{alt}} <ion-icon class="delete" slot="end" [ios]="'trash-outline'" [md]="'trash-sharp'">
-              </ion-icon>
-            </ion-item>
+            <ion-item>{{alt}}</ion-item>
           </ion-row>
         </ion-list>
       </div>
-      <div>
-        <ion-input class="input-text" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()"></ion-input>
-        <ion-button (click)="addAlternative()">+</ion-button>
+      <div class="webflow-style-input">
+        <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()">
+        </ion-input>
+        <ion-button type="submit">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
@@ -44,15 +45,16 @@
       <div class="list-alternatives">
         <ion-list class="row-table" *ngFor="let nature of natureStates; let i = index">
           <ion-row>
-            <ion-item>{{nature}} <ion-icon class="delete" slot="end" [ios]="'trash-outline'" [md]="'trash-sharp'">
-              </ion-icon>
-            </ion-item>
+            <ion-item>{{nature}}</ion-item>
           </ion-row>
         </ion-list>
       </div>
-      <div>
-        <ion-input class="input-text" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()"></ion-input>
-        <ion-button (click)="addNatureState()">+</ion-button>
+      <div class="webflow-style-input">
+        <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()">
+        </ion-input>
+        <ion-button type="submit">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>
@@ -64,12 +66,22 @@
     <ion-row *ngFor="let alt of alternatives; let i = index">
       <div class="col">{{alt}}</div>
       <div *ngFor="let nature of natureStates; let j = index">
-        <ion-input type="text" style="width : 50px;" [(ngModel)]="matrix[i][j]"></ion-input>
+        <ion-input class="input-matrix" type="text" style="width : 50px;" [(ngModel)]="matrix[i][j]"></ion-input>
       </div>
     </ion-row>
 
   </ion-card>
-  <ion-button (click)="calculateResult()">Calcular</ion-button>
+  <div class="user-box">
+    <div class="button-container">
+      <ion-button shape="round" size="large" color="transparent" (click)="calculateResult()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Calcular
+      </ion-button>
+    </div>
+  </div>
 
 </ion-content>
 
