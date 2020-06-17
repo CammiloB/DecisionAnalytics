@@ -28,7 +28,7 @@
       <div class="webflow-style-input">
         <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameAlternative" (keydown.enter)="addAlternative()">
         </ion-input>
-        <ion-button type="submit">
+        <ion-button type="submit" (click)="addAlternative()">
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-button>
       </div>
@@ -52,7 +52,7 @@
       <div class="webflow-style-input">
         <ion-input placeholder="Nombre Alternativa" [(ngModel)]="nameNatureState" (keydown.enter)="addNatureState()">
         </ion-input>
-        <ion-button type="submit">
+        <ion-button type="submit" (click)="addNatureState()">
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </ion-button>
       </div>
@@ -92,12 +92,27 @@
 
 <ion-content *ngIf="resultFlag">
   <ion-card>
+    <ion-card-content>
+      <div class="list-alternatives">
+        <ion-list class="row-table" *ngFor="let result of results; let i = index">
+          <ion-row>
+            <ion-item *ngIf="i != index">{{alternatives[i]}}:   {{result}}</ion-item>
+            <ion-item *ngIf="i == index">
+              <ion-row class="result-item">
+                <ion-label>{{alternatives[i]}}:   {{result}}</ion-label>
+                <ion-icon name="checkmark-outline"></ion-icon>
+              </ion-row>
+            </ion-item>
+          </ion-row>
+        </ion-list>
+      </div>
+    </ion-card-content>
     <div style="text-align: center;">
       <ion-text>La mejor opcion que puede tomar es: {{alternatives[index]}}</ion-text>
     </div>
     <div class="user-box">
       <div class="button-container">
-        <ion-button shape="round" size="large" color="transparent" (click)="calculateResult()">
+        <ion-button shape="round" size="large" color="transparent" (click)="refresh()">
           <span></span>
           <span></span>
           <span></span>

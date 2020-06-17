@@ -5,7 +5,7 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-list-header>Bienvenido</ion-list-header>
-          <ion-note>Metodos probabilisticos</ion-note>
+          <ion-note>Métodos no probabilisticos</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">

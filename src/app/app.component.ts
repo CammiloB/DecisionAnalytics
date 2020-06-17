@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
       icon: 'sad'
     },
     {
-      title: 'Arrepentimientos',
+      title: 'Maximin',
       url: 'methods/regrets',
       icon: 'arrow-undo-circle'
     },
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
       icon: 'mail'
     },
     {
-      title: 'Wald',
+      title: 'Wald (MiniMax)',
       url: 'methods/wald',
       icon: 'paper-plane'
     },

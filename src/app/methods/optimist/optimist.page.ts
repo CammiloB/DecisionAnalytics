@@ -18,6 +18,7 @@ export class OptimistPage implements OnInit {
   public resultFlag = false;
   public result = 0;
   public index = 0;
+  public highers = [];
 
   constructor(
     public toastController: ToastController
@@ -50,14 +51,14 @@ export class OptimistPage implements OnInit {
   }
 
   calculateResult(){
-    var highers = [];
+    
     //this.convertMatrix();
     for(var _i=0; _i<this.matrix.length; _i++){
-      highers.push(this.higherList(this.matrix[_i]));
+      this.highers.push(this.higherList(this.matrix[_i]));
     }
-    for(var _i=0; _i<highers.length; _i++){
-      if(this.result < highers[_i]){
-        this.result = highers[_i];
+    for(var _i=0; _i<this.highers.length; _i++){
+      if(this.result < this.highers[_i]){
+        this.result = this.highers[_i];
         this.index = _i;
       }
     }
@@ -99,7 +100,7 @@ export class OptimistPage implements OnInit {
   async viewToastInit(){
     const toast = await this.toastController.create({
       message: 'Los datos decimales son referenciados con punto "."',
-      duration: 3000
+      duration: 1000
     });
     toast.present();
   }

@@ -18,6 +18,9 @@ export class HurwiczPage implements OnInit {
   public result = 0;
   public index = 0;
   public alpha;
+  public results = [];
+  public highers = [];
+  public smallers = [];
 
   constructor(
     public toastController: ToastController) { }
@@ -49,11 +52,8 @@ export class HurwiczPage implements OnInit {
   }
 
   calculateResult() {
-
-    var highers = [];
-    var smallers = [];
-    var results = [];
     this.convertMatrix();
+    this.alpha = parseFloat(this.alpha);
     if (isNaN(parseFloat(this.alpha))) {
       this.viewToast();
       throw new Error(
@@ -61,16 +61,17 @@ export class HurwiczPage implements OnInit {
       )
     }
     for (var _i = 0; _i < this.matrix.length; _i++) {
-      highers.push(this.higherList(this.matrix[_i]));
-      smallers.push(this.smallerList(this.matrix[_i]));
+      this.highers.push(this.higherList(this.matrix[_i]));
+      this.smallers.push(this.smallerList(this.matrix[_i]));
     }
-    for (var _i = 0; _i < highers.length; _i++) {
-      results.push(this.alpha * highers[_i] + (1 - this.alpha) * smallers[_i])
+    for (var _i = 0; _i < this.highers.length; _i++) {
+      this.results.push((this.alpha * this.smallers[_i] + (1 - this.alpha) * this.highers[_i]))
     }
 
-    for (var _i = 0; _i < results.length; _i++) {
-      if (this.result < results[_i]) {
-        this.result = results[_i];
+    this.result = this.results[0];
+    for (var _i = 0; _i < this.results.length; _i++) {
+      if (this.result > this.results[_i]) {
+        this.result = this.results[_i];
         this.index = _i;
       }
     }
@@ -122,9 +123,10 @@ export class HurwiczPage implements OnInit {
   async viewToastInit() {
     const toast = await this.toastController.create({
       message: 'Los datos decimales son referenciados con punto "."',
-      duration: 3000
+      duration: 1000
     });
     toast.present();
+
   }
 
   refresh() {

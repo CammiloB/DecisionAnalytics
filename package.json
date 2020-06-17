@@ -28,6 +28,7 @@
     "@ionic/angular": "^5.0.0",
     "cordova-android": "8.1.0",
     "cordova-plugin-dialogs": "^2.0.2",
+    "gradle": "^1.2.3",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

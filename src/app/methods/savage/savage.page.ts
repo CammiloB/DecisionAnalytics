@@ -17,6 +17,7 @@ export class SavagePage implements OnInit {
   public resultFlag = false;
   public result = 0;
   public index = 0;
+  public maxs = [];
 
   constructor(
     public toastController: ToastController) { }
@@ -49,7 +50,7 @@ export class SavagePage implements OnInit {
 
   calculateResult(){
     var highers = [];
-    var maxs = [];
+    
     //this.convertMatrix();
     for(var _i=0; _i<this.matrix[0].length; _i++){
       var max = 0;
@@ -67,12 +68,12 @@ export class SavagePage implements OnInit {
     }
 
     for(var _i=0; _i<this.matrix.length; _i++){
-      maxs.push(this.higherList(this.matrix[_i]));
+      this.maxs.push(this.higherList(this.matrix[_i]));
     }
-    this.result = maxs[0];
-    for(var _i=0; _i<maxs.length; _i++){
-      if(this.result > maxs[_i]){
-        this.result = maxs[_i];
+    this.result = this.maxs[0];
+    for(var _i=0; _i<this.maxs.length; _i++){
+      if(this.result > this.maxs[_i]){
+        this.result = this.maxs[_i];
         this.index = _i;
       }
     }
@@ -114,7 +115,7 @@ export class SavagePage implements OnInit {
   async viewToastInit(){
     const toast = await this.toastController.create({
       message: 'Los datos decimales son referenciados con punto "."',
-      duration: 3000
+      duration: 1000
     });
     toast.present();
   }
